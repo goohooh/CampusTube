@@ -6,7 +6,6 @@ import { selectVideo, searchVideo } from '../actions/index';
 
 class VideoList extends Component {
 	constructor(props) {
-		// redux로 연결됬을 때 consturctor와 super가 필요한가?? 차후 테스
 		super(props);
 
 		this.handleSelectVideo = this.handleSelectVideo.bind(this);
@@ -21,11 +20,6 @@ class VideoList extends Component {
 		this.props.selectVideo(video);
 	}
 
-	// componentWillMount 는 에러가 생김, 컴포넌트 렌더링간에 엇박??
-	// ccomponentWillUpdate () {
-	// 	this.props.selectVideo(this.props.videos[0]);
-	// }
-
 	renderVideos() {
 		console.log('In renderVideos!!', this.props.videos.all)
 		return this.props.videos.all.map((video) => {
@@ -33,7 +27,8 @@ class VideoList extends Component {
 			const imageURL = video.snippet.thumbnails.default.url;
 			const title = video.snippet.title;
 			return (
-				<li key={key}
+				<li className="video-item"
+					key={key}
 					onClick={(event) => this.handleSelectVideo(event, video)}>
 					<img src={imageURL} />
 					<h5>{title}</h5>
@@ -44,7 +39,7 @@ class VideoList extends Component {
 
 	render() {
 		return(
-			<ul>
+			<ul className="video-list">
 				{this.renderVideos()}
 			</ul>
 		);

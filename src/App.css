@@ -1,3 +1,11 @@
+ul {
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+}
+
 .App {
   text-align: center;
 }
@@ -46,3 +54,19 @@ section li {
   top: 0;
   height: 30px;
 }
+
+.video-item {
+  border: 1px solid #ddd;
+  border-bottom: none
+}
+
+.video-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.video-item:last-child {
+  border-bottom: 1px solid #ddd;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
