@@ -22,7 +22,7 @@ class VideoList extends Component {
 
 	renderVideos() {
 		console.log('In renderVideos!!', this.props.videos.all)
-		return this.props.videos.all.map((video) => {
+		return this.props.videos.map((video) => {
 			const key = video.etag;
 			const imageURL = video.snippet.thumbnails.default.url;
 			const title = video.snippet.title;
@@ -48,7 +48,7 @@ class VideoList extends Component {
 
 function mapStateToProps(state) {
 	return { 
-		videos: state.videos,
+		videos: state.videos.all,
 		selected_video: state.videos.selected_video
 	}
 }
